@@ -1,21 +1,21 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Tailwind`,
-    description: `Gatsby starter styled with Tailwind`,
-    author: `@taylorbryant`
+    title: `Learning Curve Podcast`,
+    description: `An informal conversation between a developer and UX thinker.`,
+    author: ``
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-tailwind`,
-        short_name: `starter`,
+        name: `learning-curve-podcast`,
+        short_name: `learning-curve`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#4dc0b5`,
+        theme_color: `#805AD5`,
         display: `minimal-ui`,
-        icon: `src/images/tailwind-icon.png`
+        icon: `src/images/lc-logo.png`
       }
     },
     `gatsby-plugin-postcss`,
