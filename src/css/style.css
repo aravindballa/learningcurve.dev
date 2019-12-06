@@ -5,3 +5,7 @@
 a {
   @apply text-blue-700;
 }
+
+.host-avatar {
+  filter: grayscale(1);
+}

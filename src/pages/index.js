@@ -3,6 +3,7 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Logo from "../images/lc-logo.png";
+import Host from "../components/Host";
 
 function IndexPage() {
   return (
@@ -26,18 +27,23 @@ function IndexPage() {
         />
 
         <h2 className="text-lg my-8 p-3">
-          An informal conversation between a developer and UX thinker.
+          🎙 An informal conversation between a developer and UX thinker.
         </h2>
-        <p>
-          🎙Co-hosted by{` `}
-          <a href="https://twitter.com/brittikbasu" target="_blank">
-            Brittik
-          </a>
-          {` `}&{` `}
-          <a href="https://twitter.com/aravindballa" target="_blank">
-            Aravind
-          </a>
-        </p>
+        <p className="mt-8">Hosts</p>
+        <div className="flex justify-between max-w-lg mx-auto mt-4">
+          <Host
+            img="https://pbs.twimg.com/profile_images/1139116508011831297/ZTCh8sAg_400x400.png"
+            name="@brittikbasu"
+            role="UX Thinker"
+            twitter="brittikbasu"
+          />
+          <Host
+            img="https://pbs.twimg.com/profile_images/1187261838234251264/MZ2GZDyc_400x400.jpg"
+            name="@aravindballa"
+            role="Javascript Dev"
+            twitter="aravindballa"
+          />
+        </div>
       </section>
     </Layout>
   );
