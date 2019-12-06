@@ -1,5 +1,7 @@
-import PropTypes from "prop-types";
 import React from "react";
+import PropTypes from "prop-types";
+
+import Subscribe from "./Subscribe";
 
 // import Header from "./header";
 
@@ -20,24 +22,7 @@ function Layout({ children }) {
             <sup>th</sup> December. No worries though.
           </p>
           <p>Let us keep you informed.</p>
-          <form action="POST" data-netlify="true" name="mailing-list">
-            <div className="flex my-4">
-              <input
-                className="flex-1 bg-gray-300 rounded mr-4 px-2 border-2 border-gray-300 focus:bg-white focus:border-gray-500 outline-none"
-                id="email"
-                name="email"
-                placeholder="Email"
-                type="email"
-              />
-              <button
-                className="w-16 text-xs bg-purple-600 rounded py-2 text-white hover:bg-purple-700 focus:bg-purple-700 outline-none"
-                onClick={e => e.preventDefault()}
-                type="submit"
-              >
-                NOTIFY
-              </button>
-            </div>
-          </form>
+          <Subscribe />
           <p className="text-xs text-gray-600 text-center">
             🚫 <i>No Spam Gauranteed</i>
           </p>
