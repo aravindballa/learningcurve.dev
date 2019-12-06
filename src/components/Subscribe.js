@@ -14,15 +14,16 @@ const Subscribe = () => {
 
   const getStatus = async () => {
     try {
-      await fetch(`/`, {
+      const res = await fetch(`/`, {
         method: `POST`,
         headers: { [`Content-Type`]: `application/x-www-form-urlencoded` },
         body: encode({ [`form-name`]: `mailing-list`, email })
       });
+      if (res.status === 200) setStatus(`DONE`);
+      else setStatus(`ERROR`);
     } catch (err) {
       setStatus(`ERROR`);
     }
-    setStatus(`DONE`);
   };
 
   const handleSubmit = async e => {
@@ -59,6 +60,11 @@ const Subscribe = () => {
         ) : null}
         {status === `DONE` ? (
           <p className="text-center w-full">Thanks 🎉</p>
+        ) : null}
+        {status === `ERROR` ? (
+          <p className="text-center w-full text-sm text-gray-700">
+            Something went wrong. Could you refresh page and retry? 🙊
+          </p>
         ) : null}
       </div>
     </form>
