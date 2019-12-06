@@ -30,7 +30,7 @@ function IndexPage() {
           🎙 An informal conversation between a developer and UX thinker.
         </h2>
         <p className="mt-8">Hosts</p>
-        <div className="flex justify-between max-w-lg mx-auto mt-4">
+        <div className="flex sm:flex-row sm:justify-between sm:max-w-lg flex-col max-w-xs mx-auto">
           <Host
             img="https://pbs.twimg.com/profile_images/1139116508011831297/ZTCh8sAg_400x400.png"
             name="@brittikbasu"
