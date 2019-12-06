@@ -20,7 +20,7 @@ function Layout({ children }) {
             <sup>th</sup> December. No worries though.
           </p>
           <p>Let us keep you informed.</p>
-          <form action="POST" name="mailing-list" netlify>
+          <form action="POST" data-netlify="true" name="mailing-list">
             <div className="flex my-4">
               <input
                 className="flex-1 bg-gray-300 rounded mr-4 px-2 border-2 border-gray-300 focus:bg-white focus:border-gray-500 outline-none"
