@@ -11,9 +11,14 @@ const Host = ({ name, img, role, twitter }) => (
       <p className="font-bold text-lg leading-none text-gray-700">{name}</p>
       <p className="text-gray-600">{role}</p>
       <div className="flex mt-2">
-        <a href={`https://twitter.com/${twitter}`}>
+        <a
+          className="text-gray-600"
+          href={`https://twitter.com/${twitter}`}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <svg
-            fill="#1da1f2"
+            className="fill-current"
             height="16"
             viewBox="0 0 24 24"
             width="16"

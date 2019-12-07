@@ -26,10 +26,13 @@ function IndexPage() {
           src={Logo}
         />
 
-        <h2 className="text-lg my-8 p-3">
-          🎙 An informal conversation between a developer and UX thinker.
-        </h2>
-        <p className="mt-8">Hosts</p>
+        <p className="text-lg my-8 p-3">
+          Ease the curve as we share what we have learnt. 📈
+          <br />
+          🎙 An informal conversation between UX Thinker and a JS Dev.
+        </p>
+
+        <p className="mt-8 uppercase">Hosts</p>
         <div className="flex sm:flex-row sm:justify-between sm:max-w-lg flex-col max-w-xs mx-auto">
           <Host
             img="https://pbs.twimg.com/profile_images/1139116508011831297/ZTCh8sAg_400x400.png"
