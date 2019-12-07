@@ -26,8 +26,8 @@ function IndexPage() {
           src={Logo}
         />
 
-        <p className="text-lg my-8 p-3">
-          Ease the curve as we share what we have learnt. 📈
+        <p className="text-lg my-8 p-3 text-gray-900">
+          Ease the curve as we share what we are learning. 📈
           <br />
           🎙 An informal conversation between UX Thinker and a JS Dev.
         </p>
