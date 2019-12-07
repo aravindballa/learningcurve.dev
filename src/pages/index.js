@@ -21,7 +21,7 @@ function IndexPage() {
 
       <section className="text-center">
         <img
-          alt="Cat and human sitting on a couch"
+          alt="Learning curve podcast logo"
           className="block mx-auto w-1/2 rounded  shadow-2xl"
           src={Logo}
         />
