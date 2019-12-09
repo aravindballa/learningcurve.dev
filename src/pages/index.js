@@ -32,7 +32,7 @@ function IndexPage() {
           🎙 An informal conversation between UX Thinker and a JS Dev.
         </p>
 
-        <div className="flex justify-around">
+        <div className="flex justify-center">
           <a
             aria-label="Spotify"
             className="bg-gray-100 py-2 px-4 rounded-full border-2 border-white hover:bg-white focus:bg-white"
@@ -79,6 +79,20 @@ function IndexPage() {
                 </g>
               </g>
             </svg>
+          </a>
+          <a
+            aria-label="Anchor"
+            className="bg-purple-500 py-2 px-4 ml-4 rounded-full border-2 border-white hover:bg-purple-600 focus:bg-purple-600 flex items-center"
+            href="https://anchor.fm/learningcurve"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="Anchor logo"
+              className="grayscale"
+              src="https://d12xoj7p9moygp.cloudfront.net/images/anchor-logo-4.png"
+              style={{ width: 100 }}
+            />
           </a>
         </div>
 
