@@ -18,8 +18,8 @@ function Layout({ children }) {
         <div className="get-notified bg-white p-4 rounded max-w-lg mx-auto -mt-8 text-gray-900">
           <h3 className="text-xl font-bold">Get notified 📬</h3>
           <p>
-            You are a <i>little</i> early here. We are launching on 9
-            <sup>th</sup> December. No worries though.
+            We'll send a mail whenever a new episode releases, along with the
+            show notes!
           </p>
           <p>Let us keep you informed.</p>
           <Subscribe />

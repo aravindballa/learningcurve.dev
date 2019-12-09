@@ -5,6 +5,12 @@ module.exports = {
     author: `learningcurvpod`
   },
   plugins: [
+    {
+      resolve: `gatsby-source-anchor`,
+      options: {
+        rss: `https://anchor.fm/s/39d9b14/podcast/rss`
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
