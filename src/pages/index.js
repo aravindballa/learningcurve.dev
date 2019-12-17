@@ -2,7 +2,6 @@ import React from "react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import Logo from "../images/lc-logo.png";
 import Host from "../components/Host";
 
 function IndexPage() {
@@ -23,7 +22,7 @@ function IndexPage() {
         <img
           alt="Learning curve podcast logo"
           className="block mx-auto w-1/2 rounded  shadow-2xl"
-          src={Logo}
+          src="https://res.cloudinary.com/djeivq7td/image/upload/q_auto,w_auto,dpr_auto/learning-curve/lc-logo.png"
         />
 
         <p className="text-lg my-8 p-3 text-gray-900">
