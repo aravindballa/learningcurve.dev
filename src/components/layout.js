@@ -28,7 +28,7 @@ function Layout({ children }) {
           </p>
         </div>
         <nav className="flex justify-center max-w-4xl mx-auto p-2 md:p-4 text-xs text-gray-500">
-          <p>© Brittik & Aravind ▫ 2019</p>
+          <p>© Brittik & Aravind ▫ 2020</p>
         </nav>
       </footer>
     </div>
