@@ -5,7 +5,7 @@ const Host = ({ name, img, role, twitter }) => (
     <img
       alt={`${name} avatar`}
       className="host-avatar w-16 h-16 rounded-full mr-4 border-2 border-gray-100"
-      src={img}
+      src={img || `https://unavatar.now.sh/${twitter}`}
     />
     <div className="text-left">
       <p className="font-bold text-lg leading-none text-gray-700">{name}</p>

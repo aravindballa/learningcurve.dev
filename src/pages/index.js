@@ -99,14 +99,8 @@ function IndexPage() {
           Hosts
         </h3>
         <div className="flex sm:flex-row sm:justify-between sm:max-w-lg flex-col max-w-xs mx-auto">
+          <Host name="@brittikbasu" role="UX Thinker" twitter="brittikbasu" />
           <Host
-            img="https://pbs.twimg.com/profile_images/1139116508011831297/ZTCh8sAg_400x400.png"
-            name="@brittikbasu"
-            role="UX Thinker"
-            twitter="brittikbasu"
-          />
-          <Host
-            img="https://pbs.twimg.com/profile_images/1187261838234251264/MZ2GZDyc_400x400.jpg"
             name="@aravindballa"
             role="Javascript Dev"
             twitter="aravindballa"
