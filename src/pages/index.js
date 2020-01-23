@@ -5,6 +5,10 @@ import SEO from "../components/seo";
 import Host from "../components/Host";
 import { graphql } from "gatsby";
 
+import anchorPNG from "../images/anchor.png";
+import GooglePodcasts from "../components/icons/GooglePodcasts";
+import ApplePodcasts from "../components/icons/ApplePodcasts";
+
 function IndexPage({ data }) {
   const episodes = data.allAnchorEpisode.edges.filter(
     ({ node }) => node.title !== `0. Trailer`
@@ -35,10 +39,10 @@ function IndexPage({ data }) {
           🎙 An informal conversation between UX Thinker and a JS Dev.
         </p>
 
-        <div className="flex justify-center">
+        <div className="flex flex-col sm:flex-row justify-around">
           <a
             aria-label="Spotify"
-            className="bg-gray-100 py-2 px-4 rounded-full border-2 border-white hover:bg-white focus:bg-white"
+            className="bg-gray-100 py-2 px-4 mt-2 mx-auto h-12 sm:m-0 rounded-full border-2 border-white hover:bg-white focus:bg-white"
             href="https://open.spotify.com/show/3mWV1OZ9SFVs34E2GGdoUd"
             rel="noopener noreferrer"
             target="_blank"
@@ -85,17 +89,30 @@ function IndexPage({ data }) {
           </a>
           <a
             aria-label="Anchor"
-            className="bg-purple-500 py-2 px-4 ml-4 rounded-full border-2 border-white hover:bg-purple-600 focus:bg-purple-600 flex items-center"
+            className="bg-gray-100 py-2 px-4 mt-2 mx-auto h-12 sm:m-0 rounded-full border-2 border-white hover:bg-white focus:bg-white flex items-center"
             href="https://anchor.fm/learningcurve"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <img
-              alt="Anchor logo"
-              className="grayscale"
-              src="https://d12xoj7p9moygp.cloudfront.net/images/anchor-logo-4.png"
-              style={{ width: 100 }}
-            />
+            <img alt="Anchor logo" src={anchorPNG} style={{ width: 100 }} />
+          </a>
+          <a
+            aria-label="Google Podcasts"
+            className="bg-gray-100 py-2 px-4 mt-2 mx-auto h-12 sm:m-0 rounded-full border-2 border-white hover:bg-white focus:bg-white flex items-center"
+            href="https://www.google.com/podcasts?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy8zOWQ5YjE0L3BvZGNhc3QvcnNz"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <GooglePodcasts width="100" />
+          </a>
+          <a
+            aria-label="Apple Podcasts"
+            className="bg-gray-100 py-2 px-4 mt-2 mx-auto h-12 sm:m-0 rounded-full border-2 border-white hover:bg-white focus:bg-white flex items-center"
+            href="https://podcasts.apple.com/in/podcast/learning-curve/id1492930419"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <ApplePodcasts width="100" />
           </a>
         </div>
 
