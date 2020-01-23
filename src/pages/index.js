@@ -6,6 +6,7 @@ import Host from "../components/Host";
 import { graphql } from "gatsby";
 
 import anchorPNG from "../images/anchor.png";
+import rssPNG from "../images/rss.png";
 import GooglePodcasts from "../components/icons/GooglePodcasts";
 import ApplePodcasts from "../components/icons/ApplePodcasts";
 
@@ -113,6 +114,15 @@ function IndexPage({ data }) {
             target="_blank"
           >
             <ApplePodcasts width="100" />
+          </a>
+          <a
+            className="bg-gray-100 py-2 px-4 mt-2 mx-auto h-12 sm:m-0 rounded-full border-2 border-white hover:bg-white focus:bg-white flex items-center"
+            href="https://anchor.fm/s/39d9b14/podcast/rss"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img alt="rss" className="w-4 mr-2" src={rssPNG} />
+            <span className="text-gray-800">RSS</span>
           </a>
         </div>
 
