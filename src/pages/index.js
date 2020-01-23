@@ -9,6 +9,7 @@ import anchorPNG from "../images/anchor.png";
 import rssPNG from "../images/rss.png";
 import GooglePodcasts from "../components/icons/GooglePodcasts";
 import ApplePodcasts from "../components/icons/ApplePodcasts";
+import HeroImage from "../components/HeroImage";
 
 function IndexPage({ data }) {
   const episodes = data.allAnchorEpisode.edges.filter(
@@ -28,11 +29,7 @@ function IndexPage({ data }) {
       />
 
       <section className="text-center">
-        <img
-          alt="Learning curve podcast logo"
-          className="block mx-auto w-1/2 rounded  shadow-2xl"
-          src="https://res.cloudinary.com/djeivq7td/image/upload/q_auto,w_auto,dpr_auto/learning-curve/lc-logo.png"
-        />
+        <HeroImage />
 
         <p className="text-lg my-8 p-3 text-gray-900">
           Ease the curve as we share what we are learning. 📈
