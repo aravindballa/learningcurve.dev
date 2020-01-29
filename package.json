@@ -4,6 +4,7 @@
   "version": "3.0.141",
   "author": "Aravind Balla <bsaaravind@gmail.com>",
   "dependencies": {
+    "@sindresorhus/slugify": "^0.10.0",
     "gatsby": "2.18.6",
     "gatsby-plugin-manifest": "2.2.31",
     "gatsby-plugin-offline": "3.0.26",

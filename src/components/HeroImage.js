@@ -1,3 +1,5 @@
+// adapted from https://codesandbox.io/embed/rj998k4vmm
+
 import React from "react";
 import { useSpring, animated } from "react-spring";
 
@@ -25,5 +27,3 @@ export default () => {
     />
   );
 };
-
-// adapted from https://codesandbox.io/embed/rj998k4vmm

@@ -3,7 +3,8 @@ import React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Host from "../components/Host";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
+import slugify from "@sindresorhus/slugify";
 
 import anchorPNG from "../images/anchor.png";
 import rssPNG from "../images/rss.png";
@@ -149,8 +150,10 @@ function IndexPage({ data }) {
                 className="mt-4 p-4 bg-white rounded-lg border border-white hover:border-gray-300"
                 key={episode.id}
               >
-                <h4 className="font-bold text-lg text-gray-800">
-                  {episode.title}
+                <h4 className="font-bold text-lg">
+                  <Link className="text-purple-800" to={slugify(episode.title)}>
+                    {episode.title}
+                  </Link>
                 </h4>
                 <p className="text-sm text-gray-600">
                   {new Date(episode.pubDate).toLocaleString(`en-US`, {
