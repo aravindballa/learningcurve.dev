@@ -24,6 +24,9 @@ module.exports = {
         icon: `src/images/lc-logo.png`
       }
     },
+    {
+      resolve: `gatsby-plugin-layout`
+    },
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-purgecss`,

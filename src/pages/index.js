@@ -1,31 +1,22 @@
-import React from "react";
+import React from 'react';
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import Host from "../components/Host";
-import { graphql, Link } from "gatsby";
-import slugify from "@sindresorhus/slugify";
+import SEO from '../components/seo';
+import Host from '../components/Host';
+import { graphql, Link } from 'gatsby';
+import slugify from '@sindresorhus/slugify';
 
-import anchorPNG from "../images/anchor.png";
-import rssPNG from "../images/rss.png";
-import GooglePodcasts from "../components/icons/GooglePodcasts";
-import ApplePodcasts from "../components/icons/ApplePodcasts";
-import HeroImage from "../components/HeroImage";
+import anchorPNG from '../images/anchor.png';
+import rssPNG from '../images/rss.png';
+import GooglePodcasts from '../components/icons/GooglePodcasts';
+import ApplePodcasts from '../components/icons/ApplePodcasts';
+import HeroImage from '../components/HeroImage';
 
 function IndexPage({ data }) {
-  const episodes = data.allAnchorEpisode.edges.filter(
-    ({ node }) => node.title !== `0. Trailer`
-  );
+  const episodes = data.allAnchorEpisode.edges.filter(({ node }) => node.title !== `0. Trailer`);
   return (
-    <Layout>
+    <>
       <SEO
-        keywords={[
-          `podcast`,
-          `beginner`,
-          `developer`,
-          `learning curve`,
-          `dev podcast`
-        ]}
+        keywords={[`podcast`, `beginner`, `developer`, `learning curve`, `dev podcast`]}
         title="Home"
       />
 
@@ -124,23 +115,15 @@ function IndexPage({ data }) {
           </a>
         </div>
 
-        <h3 className="mt-8 uppercase text-sm font-bold text-gray-700">
-          Hosts
-        </h3>
+        <h3 className="mt-8 uppercase text-sm font-bold text-gray-700">Hosts</h3>
         <div className="flex sm:flex-row sm:justify-between sm:max-w-lg flex-col max-w-xs mx-auto">
           <Host name="@brittikbasu" role="UX Thinker" twitter="brittikbasu" />
-          <Host
-            name="@aravindballa"
-            role="Javascript Dev"
-            twitter="aravindballa"
-          />
+          <Host name="@aravindballa" role="Javascript Dev" twitter="aravindballa" />
         </div>
       </section>
       <section className="my-12">
-        <h3 className="uppercase text-sm font-bold text-gray-700 text-center">
-          Episodes
-        </h3>
-        <div>
+        <h3 className="uppercase text-sm font-bold text-gray-700 text-center">Episodes</h3>
+        <div className="max-w-xl mx-auto">
           {episodes.map(({ node: episode }) => {
             const content = episode.content.match(/<p>.*?<\/p>.*/)
               ? episode.content.match(/<p>(.*?)<\/p>.*/)[1]
@@ -159,18 +142,13 @@ function IndexPage({ data }) {
                   {new Date(episode.pubDate).toLocaleString(`en-US`, {
                     month: `long`,
                     day: `2-digit`,
-                    year: `numeric`
+                    year: `numeric`,
                   })}
                 </p>
-                <audio
-                  className="w-full mt-2"
-                  controls
-                  src={episode.enclosure.url}
-                />
                 <div
                   className="text-gray-800 mt-4"
                   dangerouslySetInnerHTML={{
-                    __html: content
+                    __html: content,
                   }}
                 />
               </div>
@@ -178,7 +156,7 @@ function IndexPage({ data }) {
           })}
         </div>
       </section>
-    </Layout>
+    </>
   );
 }
 
@@ -191,7 +169,6 @@ export const query = graphql`
         node {
           id
           title
-          link
           content
           pubDate
           enclosure {
