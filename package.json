@@ -5,8 +5,8 @@
   "author": "Aravind Balla <bsaaravind@gmail.com>",
   "dependencies": {
     "@sindresorhus/slugify": "^0.10.0",
+    "framer-motion": "2.0.0-beta.7",
     "gatsby": "^2.18.6",
-    "gatsby-plugin-layout": "^1.1.21",
     "gatsby-plugin-manifest": "2.2.31",
     "gatsby-plugin-offline": "3.0.26",
     "gatsby-plugin-postcss": "2.1.16",
@@ -18,8 +18,7 @@
     "prop-types": "15.7.2",
     "react": "16.12.0",
     "react-dom": "16.12.0",
-    "react-helmet": "5.2.1",
-    "react-spring": "^8.0.27"
+    "react-helmet": "5.2.1"
   },
   "keywords": [
     "gatsby",

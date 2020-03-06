@@ -4,6 +4,7 @@ import SEO from '../components/seo';
 import Host from '../components/Host';
 import { graphql, Link } from 'gatsby';
 import slugify from '@sindresorhus/slugify';
+import { motion } from 'framer-motion';
 
 import anchorPNG from '../images/anchor.png';
 import rssPNG from '../images/rss.png';
@@ -129,9 +130,11 @@ function IndexPage({ data }) {
               ? episode.content.match(/<p>(.*?)<\/p>.*/)[1]
               : episode.content;
             return (
-              <div
+              <motion.div
                 className="mt-4 p-4 bg-white rounded-lg border border-white hover:border-gray-300"
                 key={episode.id}
+                magic
+                magicId={episode.id}
               >
                 <h4 className="font-bold text-lg">
                   <Link className="text-purple-800" to={slugify(episode.title)}>
@@ -151,7 +154,7 @@ function IndexPage({ data }) {
                     __html: content,
                   }}
                 />
-              </div>
+              </motion.div>
             );
           })}
         </div>

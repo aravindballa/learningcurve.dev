@@ -1,5 +1,7 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
+import { navigate } from '@reach/router';
+import { motion } from 'framer-motion';
 
 const EpisodePage = ({ pageContext, data }) => {
   const {
@@ -11,13 +13,20 @@ const EpisodePage = ({ pageContext, data }) => {
   return (
     <div className="max-w-3xl mx-auto">
       <div className="my-4 px-1 flex justify-between">
-        <Link
-          className="text-gray-500 hover:text-gray-600 focus:text-gray-600"
+        <button
+          className="text-gray-500 hover:text-gray-600 focus:text-gray-600 focus:outline-none"
           to="/"
-        >{`← Home`}</Link>
+          onClick={() => {
+            navigate(-1);
+          }}
+        >{`← Home`}</button>
         <p className="text-gray-500">🎙 Learning Curve Podcast</p>
       </div>
-      <div className="bg-white p-8 lg:px-16 rounded-lg shadow-md">
+      <motion.div
+        className="bg-white p-8 lg:px-16 rounded-lg shadow-md"
+        magic
+        magicId={pageContext.id}
+      >
         <h1 className="text-2xl font-bold">{title}</h1>
         <p className="text-sm text-gray-600">
           {new Date(pubDate).toLocaleString(`en-US`, {
@@ -29,7 +38,7 @@ const EpisodePage = ({ pageContext, data }) => {
         <audio className="w-full my-8" controls src={url} />
         <h2 className="text-lg font-bold">Show Notes</h2>
         <div dangerouslySetInnerHTML={{ __html: content }} />
-      </div>
+      </motion.div>
     </div>
   );
 };
