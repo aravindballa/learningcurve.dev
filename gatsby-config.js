@@ -2,7 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Learning Curve Podcast`,
     description: `An informal conversation between a developer and UX thinker.`,
-    author: `learningcurvpod`,
+    author: `@learningcurvpod`,
+    url: `https://learningcurve.dev`,
   },
   plugins: [
     {

@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import { navigate } from '@reach/router';
 import { motion } from 'framer-motion';
 import prettyMilliseconds from 'pretty-ms';
+import SEO from '../components/seo';
 
 // https://res.cloudinary.com/djeivq7td/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/w_857,c_fit,co_rgb:000000,g_north_west,x_108,y_87,l_text:Raleway_72_bold:10%20-%20Practical%20remote%20working%20tips/w_857,c_fit,co_rgb:000000,g_south_west,x_140,y_180,l_text:Raleway_36:Mar%2023%202020/w_857,c_fit,co_rgb:000000,g_south_west,x_140,y_120,l_text:Raleway_36:21m%2024s/lc-og
 
@@ -12,9 +13,28 @@ const EpisodePage = ({ pageContext, data }) => {
     pubDate,
     content,
     enclosure: { url },
-    itunes: { duration },
+    itunes: { duration, episode },
+    contentSnippent,
   } = data.anchorEpisode;
-  return (
+
+  const dateString = new Date(pubDate).toLocaleString(`en-US`, {
+    month: `long`,
+    day: `2-digit`,
+    year: `numeric`,
+  });
+  const durationString = prettyMilliseconds(duration * 1000);
+
+  const ogImage = `https://res.cloudinary.com/djeivq7td/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/w_857,c_fit,co_rgb:000000,g_north_west,x_108,y_87,l_text:Raleway_72_bold:${episode}${title
+    .replace('.', ' -')
+    .replace(
+      /\p{Emoji}/gu,
+      ''
+    )}/w_857,c_fit,co_rgb:000000,g_south_west,x_140,y_180,l_text:Raleway_36:${dateString.replace(
+    ',',
+    ''
+  )}/w_857,c_fit,co_rgb:000000,g_south_west,x_140,y_120,l_text:Raleway_36:${durationString}/lc-og`;
+  return [
+    <SEO title={title} description={contentSnippent} image={ogImage} />,
     <div className="max-w-3xl mx-auto">
       <div className="my-4 px-1 flex justify-between">
         <button
@@ -33,19 +53,14 @@ const EpisodePage = ({ pageContext, data }) => {
       >
         <h1 className="text-2xl font-bold">{title}</h1>
         <p className="text-sm text-gray-600">
-          {new Date(pubDate).toLocaleString(`en-US`, {
-            month: `long`,
-            day: `2-digit`,
-            year: `numeric`,
-          })}{' '}
-          ᐧ {prettyMilliseconds(duration * 1000)}
+          {dateString} ᐧ {durationString}
         </p>
         <audio className="w-full my-8" controls src={url} />
         <h2 className="text-lg font-bold">Show Notes</h2>
         <div dangerouslySetInnerHTML={{ __html: content }} />
       </motion.div>
-    </div>
-  );
+    </div>,
+  ];
 };
 
 export const query = graphql`
@@ -61,6 +76,7 @@ export const query = graphql`
       }
       itunes {
         duration
+        episode
       }
     }
   }
