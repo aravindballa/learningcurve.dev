@@ -2,13 +2,17 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { navigate } from '@reach/router';
 import { motion } from 'framer-motion';
+import prettyMilliseconds from 'pretty-ms';
+
+// https://res.cloudinary.com/djeivq7td/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/w_857,c_fit,co_rgb:000000,g_north_west,x_108,y_87,l_text:Raleway_72_bold:10%20-%20Practical%20remote%20working%20tips/w_857,c_fit,co_rgb:000000,g_south_west,x_140,y_180,l_text:Raleway_36:Mar%2023%202020/w_857,c_fit,co_rgb:000000,g_south_west,x_140,y_120,l_text:Raleway_36:21m%2024s/lc-og
 
 const EpisodePage = ({ pageContext, data }) => {
   const {
     title,
     pubDate,
     content,
-    enclosure: { length, url },
+    enclosure: { url },
+    itunes: { duration },
   } = data.anchorEpisode;
   return (
     <div className="max-w-3xl mx-auto">
@@ -34,6 +38,7 @@ const EpisodePage = ({ pageContext, data }) => {
             day: `2-digit`,
             year: `numeric`,
           })}{' '}
+          ᐧ {prettyMilliseconds(duration * 1000)}
         </p>
         <audio className="w-full my-8" controls src={url} />
         <h2 className="text-lg font-bold">Show Notes</h2>
@@ -52,8 +57,10 @@ export const query = graphql`
       link
       content
       enclosure {
-        length
         url
+      }
+      itunes {
+        duration
       }
     }
   }
