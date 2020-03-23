@@ -1,6 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
-import { navigate } from '@reach/router';
+import { graphql, Link } from 'gatsby';
 import { motion } from 'framer-motion';
 import prettyMilliseconds from 'pretty-ms';
 import SEO from '../components/seo';
@@ -23,7 +22,6 @@ const EpisodePage = ({ pageContext, data }) => {
     year: `numeric`,
   });
   const durationString = prettyMilliseconds(duration * 1000);
-
   const ogImage = `https://res.cloudinary.com/djeivq7td/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/w_857,c_fit,co_rgb:000000,g_north_west,x_108,y_87,l_text:Raleway_72_bold:${episode}${title
     .replace('.', ' -')
     .replace(
@@ -33,17 +31,15 @@ const EpisodePage = ({ pageContext, data }) => {
     ',',
     ''
   )}/w_857,c_fit,co_rgb:000000,g_south_west,x_140,y_120,l_text:Raleway_36:${durationString}/lc-og`;
+
   return [
     <SEO title={title} description={contentSnippent} image={ogImage} />,
     <div className="max-w-3xl mx-auto">
       <div className="my-4 px-1 flex justify-between">
-        <button
+        <Link
           className="text-gray-500 hover:text-gray-600 focus:text-gray-600 focus:outline-none"
           to="/"
-          onClick={() => {
-            navigate(-1);
-          }}
-        >{`← Home`}</button>
+        >{`← Home`}</Link>
         <p className="text-gray-500">🎙 Learning Curve Podcast</p>
       </div>
       <motion.div
