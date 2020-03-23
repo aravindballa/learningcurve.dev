@@ -1,8 +1,8 @@
-const path = require("path");
+const path = require('path');
 const slugify = require(`@sindresorhus/slugify`);
 
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
   const result = await graphql(`
     query {
       allAnchorEpisode {
@@ -22,8 +22,13 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/EpisodePage.js`),
       context: {
         slug,
-        id: node.id
-      }
+        id: node.id,
+      },
+    });
+    createRedirect({
+      fromPath: '/' + node.title.match(/^([0-9]+)\./)[1],
+      toPath: slug,
+      isPermanent: true,
     });
   });
 };
