@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
     createRedirect({
       fromPath: '/' + node.title.match(/^([0-9]+)\./)[1],
-      toPath: slug,
+      toPath: `/${slug}`,
       isPermanent: true,
     });
   });
