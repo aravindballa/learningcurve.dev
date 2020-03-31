@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby';
 import { motion } from 'framer-motion';
 import prettyMilliseconds from 'pretty-ms';
 import SEO from '../components/seo';
+import Player from '../components/Player';
 
 // https://res.cloudinary.com/djeivq7td/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/w_857,c_fit,co_rgb:000000,g_north_west,x_108,y_87,l_text:Raleway_72_bold:10%20-%20Practical%20remote%20working%20tips/w_857,c_fit,co_rgb:000000,g_south_west,x_140,y_180,l_text:Raleway_36:Mar%2023%202020/w_857,c_fit,co_rgb:000000,g_south_west,x_140,y_120,l_text:Raleway_36:21m%2024s/lc-og
 
@@ -12,7 +13,7 @@ const EpisodePage = ({ pageContext, data }) => {
     pubDate,
     content,
     enclosure: { url },
-    itunes: { duration, episode },
+    itunes: { duration, episode, image },
     contentSnippent,
   } = data.anchorEpisode;
 
@@ -51,7 +52,7 @@ const EpisodePage = ({ pageContext, data }) => {
         <p className="text-sm text-gray-600">
           {dateString} ᐧ {durationString}
         </p>
-        <audio className="w-full my-8" controls src={url} />
+        <Player url={url} image={image} />
         <h2 className="text-lg font-bold">Show Notes</h2>
         <div dangerouslySetInnerHTML={{ __html: content }} />
       </motion.div>
@@ -73,6 +74,7 @@ export const query = graphql`
       itunes {
         duration
         episode
+        image
       }
     }
   }
