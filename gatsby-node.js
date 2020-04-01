@@ -32,3 +32,9 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 };
+
+exports.onServiceWorkerUpdateFound = () => {
+  if (window.localStorage) {
+    window.localStorage.setItem('sw-update', 'true');
+  }
+};

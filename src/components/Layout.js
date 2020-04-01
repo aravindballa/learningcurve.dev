@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { MagicMotion } from 'framer-motion';
 
 import Footer from './Footer';
+import UpdateCacheModal from './UpdateCacheModal';
 
 function Layout({ children }) {
   return (
@@ -13,6 +14,7 @@ function Layout({ children }) {
         </main>
         <Footer />
       </MagicMotion>
+      <UpdateCacheModal />
     </div>
   );
 }
