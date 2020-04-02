@@ -12,6 +12,19 @@ module.exports = {
         rss: `https://anchor.fm/s/39d9b14/podcast/rss`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `episodes`,
+        path: `${__dirname}/episodes/`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,

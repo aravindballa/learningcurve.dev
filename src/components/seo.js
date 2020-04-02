@@ -4,7 +4,14 @@ import React from 'react';
 import Helmet from 'react-helmet';
 
 const defaultImage = `https://res.cloudinary.com/djeivq7td/image/upload/v1576063962/learning-curve/lc-logo.png`;
-function SEO({ description, lang = 'en', meta, keywords, title, image = defaultImage }) {
+function SEO({
+  description,
+  lang = 'en',
+  meta,
+  keywords = 'learning,curve,podcast',
+  title,
+  image = defaultImage,
+}) {
   const { site } = useStaticQuery(graphql`
     query DefaultSEOQuery {
       site {
@@ -66,16 +73,11 @@ function SEO({ description, lang = 'en', meta, keywords, title, image = defaultI
           name: `twitter:image`,
           content: image,
         },
-      ]
-        .concat(
-          keywords.length > 0
-            ? {
-                name: `keywords`,
-                content: keywords.join(`, `),
-              }
-            : []
-        )
-        .concat(meta)}
+        {
+          name: `keywords`,
+          content: keywords,
+        },
+      ]}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
     />
@@ -84,13 +86,13 @@ function SEO({ description, lang = 'en', meta, keywords, title, image = defaultI
 
 SEO.defaultProps = {
   lang: `en`,
-  keywords: [],
+  keywords: '',
   meta: [],
 };
 
 SEO.propTypes = {
   description: PropTypes.string,
-  keywords: PropTypes.arrayOf(PropTypes.string),
+  keywords: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.array,
   title: PropTypes.string.isRequired,

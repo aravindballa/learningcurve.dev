@@ -23,6 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
       context: {
         slug,
         id: node.id,
+        episode: parseInt(node.title.match(/^([0-9]+)\./)[1], 10),
       },
     });
     createRedirect({

@@ -2,6 +2,8 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { motion } from 'framer-motion';
 import prettyMilliseconds from 'pretty-ms';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+
 import SEO from '../components/seo';
 import Player from '../components/Player';
 
@@ -16,6 +18,11 @@ const EpisodePage = ({ pageContext, data }) => {
     itunes: { duration, episode, image },
     contentSnippent,
   } = data.anchorEpisode;
+
+  const {
+    body,
+    frontmatter: { keywords },
+  } = data.mdx || { body: null, frontmatter: { keywords: '' } };
 
   const dateString = new Date(pubDate).toLocaleString(`en-US`, {
     month: `long`,
@@ -34,7 +41,7 @@ const EpisodePage = ({ pageContext, data }) => {
   )}/w_857,c_fit,co_rgb:000000,g_south_west,x_140,y_120,l_text:Raleway_36:${durationString}/lc-og`;
 
   return [
-    <SEO title={title} description={contentSnippent} image={ogImage} />,
+    <SEO title={title} description={contentSnippent} image={ogImage} keywords={keywords} />,
     <div className="max-w-3xl mx-auto">
       <div className="my-4 px-1 flex justify-between">
         <Link
@@ -43,11 +50,7 @@ const EpisodePage = ({ pageContext, data }) => {
         >{`← Home`}</Link>
         <p className="text-gray-500">🎙 Learning Curve Podcast</p>
       </div>
-      <motion.div
-        className="bg-white p-8 lg:px-16 rounded-lg shadow-md"
-        magic
-        magicId={pageContext.id}
-      >
+      <div className="bg-white p-8 lg:px-16 rounded-lg shadow-md">
         <h1 className="text-2xl font-bold">{title}</h1>
         <p className="text-sm text-gray-600">
           {dateString} ᐧ {durationString}
@@ -55,13 +58,35 @@ const EpisodePage = ({ pageContext, data }) => {
         <Player url={url} image={image} />
         <h2 className="text-lg font-bold">Show Notes</h2>
         <div dangerouslySetInnerHTML={{ __html: content }} />
-      </motion.div>
+
+        {body ? (
+          <>
+            <h2 className="mt-4 text-lg font-bold">Transcript</h2>
+            <p className="text-sm bg-pink-100 p-4 rounded-lg text-pink-700">
+              💡This is transcribed using an{' '}
+              <a className="text-pink-700 underline" href="https://otter.ai">
+                AI tool
+              </a>
+              . So don't expected it to be perfect. If you find mistakes, please help us polishing
+              this by{' '}
+              <a
+                className="text-pink-700 underline"
+                href={`https://github.com/aravindballa/learningcurve.dev/edit/master/episodes/${episode}.md`}
+              >
+                making a PR
+              </a>
+              .
+            </p>
+            <MDXRenderer>{body}</MDXRenderer>
+          </>
+        ) : null}
+      </div>
     </div>,
   ];
 };
 
 export const query = graphql`
-  query EpisodeQuery($id: String) {
+  query EpisodeQuery($id: String, $episode: Int) {
     anchorEpisode(id: { eq: $id }) {
       title
       pubDate
@@ -76,6 +101,12 @@ export const query = graphql`
         episode
         image
       }
+    }
+    mdx(frontmatter: { epidsode: { eq: $episode } }) {
+      frontmatter {
+        keywords
+      }
+      body
     }
   }
 `;

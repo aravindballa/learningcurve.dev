@@ -45,7 +45,7 @@ export default ({ image, url }) => {
     <>
       <audio src={url} ref={audioRef} />
       <div className="flex my-4">
-        <img className="w-24 rounded" src={image} alt="" srcset="" />
+        <img height="96" className="w-24 rounded" src={image} alt="episode art" />
         <div className="ml-2 flex-1">
           <div className="relative mb-4">
             <div className="h-2 w-full bg-purple-200 rounded"></div>

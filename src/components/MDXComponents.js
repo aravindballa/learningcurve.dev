@@ -1,0 +1,54 @@
+import React from 'react';
+
+const twitterHandle = {
+  'Aravind Balla': 'aravindballa',
+  Brittik: 'brittikbasu',
+};
+
+const Paragraph = ({ children, ...rest }) => {
+  if (Array.isArray(children)) {
+    const [speakerString, ...restChildren] = children;
+    const speakerMatch = speakerString.match(/(.*?)\s([0-9]+:[0-9]+)/);
+    if (speakerMatch) {
+      return (
+        <div className="mt-4">
+          <div className="flex items-center">
+            <img
+              alt={speakerMatch[1]}
+              className="w-8 rounded-full mr-2"
+              src={`https://avatars.io/twitter/${twitterHandle[speakerMatch[1]]}`}
+            />
+            <div className="leading-tight">
+              <p className="text-gray-900 text-sm">
+                <strong>{speakerMatch[1]}</strong>
+              </p>
+              <p className="text-gray-700">
+                <span className="text-xs">{speakerMatch[2]}</span>
+              </p>
+            </div>
+          </div>
+          <div className="mt-1">
+            <p
+              className="text-gray-900"
+              {...rest}
+              children={restChildren[restChildren.length - 1]}
+            />
+          </div>
+        </div>
+      );
+    }
+  }
+  return <p className="mt-2" {...rest} children={children} />;
+};
+
+const BlockQuote = props => (
+  <blockquote
+    className="text-xl p-2 pb-4 pl-8 border-l-2 rounded font-serif italic mt-2 bg-gray-100"
+    {...props}
+  />
+);
+
+export default {
+  p: Paragraph,
+  blockquote: BlockQuote,
+};
