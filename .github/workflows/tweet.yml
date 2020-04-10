@@ -1,6 +1,6 @@
 name: Tweet
 
-on: []
+on: [push]
 
 jobs:
   build:
