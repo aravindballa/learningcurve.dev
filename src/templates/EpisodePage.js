@@ -63,7 +63,7 @@ const EpisodePage = ({ pageContext, data }) => {
           <>
             <h2 className="mt-4 text-lg font-bold">Transcript</h2>
             <p className="text-sm bg-pink-100 p-4 rounded-lg text-pink-700">
-              💡This is transcribed using an{' '}
+              🤗This is transcribed using an{' '}
               <a className="text-pink-700 underline" href="https://otter.ai">
                 AI tool
               </a>

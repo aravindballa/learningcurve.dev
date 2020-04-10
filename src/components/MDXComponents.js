@@ -8,6 +8,10 @@ const twitterHandle = {
 const Paragraph = ({ children, ...rest }) => {
   if (Array.isArray(children)) {
     const [speakerString, ...restChildren] = children;
+    const contentToDisplay = restChildren.filter(c => {
+      if (typeof c === 'string') return !!c.trim();
+      return c.props.mdxType !== 'br';
+    });
     const speakerMatch = speakerString.match(/(.*?)\s([0-9]+:[0-9]+)/);
     if (speakerMatch) {
       return (
@@ -28,11 +32,7 @@ const Paragraph = ({ children, ...rest }) => {
             </div>
           </div>
           <div className="mt-1">
-            <p
-              className="text-gray-900"
-              {...rest}
-              children={restChildren[restChildren.length - 1]}
-            />
+            <p className="text-gray-900" {...rest} children={contentToDisplay} />
           </div>
         </div>
       );

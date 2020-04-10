@@ -167,7 +167,7 @@ export default IndexPage;
 
 export const query = graphql`
   query AnchorEpisodes {
-    allAnchorEpisode {
+    allAnchorEpisode(sort: { order: DESC, fields: isoDate }) {
       edges {
         node {
           id
