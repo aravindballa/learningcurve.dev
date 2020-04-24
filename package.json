@@ -11,7 +11,7 @@
     "gatsby": "^2.18.6",
     "gatsby-plugin-manifest": "2.2.31",
     "gatsby-plugin-mdx": "^1.1.4",
-    "gatsby-plugin-netlify": "^2.2.0",
+    "gatsby-plugin-netlify": "^2.2.3",
     "gatsby-plugin-offline": "3.0.26",
     "gatsby-plugin-postcss": "2.1.16",
     "gatsby-plugin-purgecss": "4.0.1",
