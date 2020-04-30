@@ -9,3 +9,15 @@ a {
 .host-avatar {
   filter: grayscale(1);
 }
+
+p {
+  @apply mb-4 text-gray-900;
+}
+
+blockquote {
+  @apply text-xl py-4 px-8 border-l-2 rounded font-serif italic mb-4 bg-gray-100;
+}
+
+blockquote > p {
+  @apply m-0;
+}
