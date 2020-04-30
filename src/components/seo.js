@@ -1,7 +1,7 @@
 import { useStaticQuery, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 
 const defaultImage = `https://res.cloudinary.com/djeivq7td/image/upload/v1576063962/learning-curve/lc-logo.png`;
 function SEO({

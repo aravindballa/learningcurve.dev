@@ -1,6 +1,9 @@
 name: Tweet
 
-on: [push]
+on:
+  schedule:
+    # at 15:30 and 21:30 hrs everyday
+    -cron: '30 15,21 * * *'
 
 jobs:
   build:
