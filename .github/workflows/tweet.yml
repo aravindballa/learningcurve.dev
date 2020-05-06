@@ -3,7 +3,7 @@ name: Tweet
 on:
   schedule:
     # at 15:30 and 21:30 hrs everyday
-    - cron: '30 15,21 * * *'
+    - cron: '0 10,16 * * *'
 
 jobs:
   build:
@@ -36,3 +36,7 @@ jobs:
           yarn tweet
         env:
           CI: true
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}
+          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}

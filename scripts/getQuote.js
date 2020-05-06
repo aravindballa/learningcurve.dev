@@ -1,6 +1,9 @@
+require('dotenv').config();
+
 const glob = require('glob');
 const path = require('path');
 const fs = require('fs');
+const Twitter = require('twitter');
 
 // const fetch = require('node-fetch');
 // const cheerio = require('cheerio');
@@ -35,10 +38,25 @@ let tweet = '';
     );
     const quotes = randomEpisode
       .split('\n')
-      .filter(line => line.match(/^>/))
-      .map(line => line.replace(/^>\s*/, ''));
+      .filter((line) => line.match(/^>/))
+      .map((line) => line.replace(/^>\s*/, ''));
     tweet = quotes[Math.floor(Math.random() * quotes.length)];
   }
 
   console.log(tweet);
+
+  const client = new Twitter({
+    consumer_key: process.env.TWITTER_API_KEY,
+    consumer_secret: process.env.TWITTER_API_SECRET,
+    access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+  });
+
+  client.post('statuses/update', { status: tweet }, function (error, tweet, response) {
+    if (!error) {
+      console.log(tweet);
+    } else {
+      console.error(error);
+    }
+  });
 })();
