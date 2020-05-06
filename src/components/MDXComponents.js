@@ -1,19 +1,18 @@
 import React from 'react';
 
-const twitterHandle = {
-  'Aravind Balla': 'aravindballa',
-  'Brittik Basu': 'brittikbasu',
-  Aravind: 'aravindballa',
-  Brittik: 'brittikbasu',
+import AravindAvatar from '../images/aravind-avatar.png';
+import BrittikAvatar from '../images/brittik-avatar.jpg';
+
+const avatar = {
+  'Aravind Balla': AravindAvatar,
+  'Brittik Basu': BrittikAvatar,
+  Aravind: AravindAvatar,
+  Brittik: BrittikAvatar,
 };
 
 const TranscriptSpeaker = ({ name, time }) => (
   <div className="flex items-center mb-1">
-    <img
-      alt={name}
-      className="w-8 rounded-full mr-2"
-      src={`https://avatars.io/twitter/${twitterHandle[name]}`}
-    />
+    <img alt={name} className="w-8 rounded-full mr-2" src={avatar[name]} />
     <div className="leading-tight">
       <p className="text-gray-900 text-sm m-0">
         <strong>{name}</strong>

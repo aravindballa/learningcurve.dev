@@ -1,15 +1,18 @@
-import React from "react";
+import React from 'react';
+
+import AravindAvatar from '../images/aravind-avatar.png';
+import BrittikAvatar from '../images/brittik-avatar.jpg';
 
 const Host = ({ name, img, role, twitter }) => (
   <div className="host-details flex bg-white py-4 pl-4 pr-8 mt-4 rounded-lg border border-gray-100 hover:border-gray-300">
     <img
       alt={`${name} avatar`}
       className="host-avatar w-16 h-16 rounded-full mr-4 border-2 border-gray-100"
-      src={img || `https://avatars.io/twitter/${twitter}`}
+      src={twitter === 'aravindballa' ? AravindAvatar : BrittikAvatar}
     />
     <div className="text-left">
-      <p className="font-bold text-lg leading-none text-gray-700">{name}</p>
-      <p className="text-gray-600">{role}</p>
+      <p className="font-bold text-lg leading-none text-gray-700 m-0">{name}</p>
+      <p className="text-gray-600 m-0">{role}</p>
       <div className="flex mt-2">
         <a
           className="text-gray-600"
