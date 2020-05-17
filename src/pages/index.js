@@ -3,7 +3,6 @@ import React from 'react';
 import SEO from '../components/seo';
 import Host from '../components/Host';
 import { graphql, Link } from 'gatsby';
-import slugify from '@sindresorhus/slugify';
 import { motion } from 'framer-motion';
 
 import anchorPNG from '../images/anchor.png';
@@ -11,6 +10,7 @@ import rssPNG from '../images/rss.png';
 import GooglePodcasts from '../components/icons/GooglePodcasts';
 import ApplePodcasts from '../components/icons/ApplePodcasts';
 import HeroImage from '../components/HeroImage';
+import getEpSlug from '../utils/getEpSlug';
 
 function IndexPage({ data }) {
   const episodes = data.allAnchorEpisode.edges.filter(({ node }) => node.title !== `0. Trailer`);
@@ -136,8 +136,9 @@ function IndexPage({ data }) {
                 magic
                 magicId={episode.id}
               >
+                <p className="text-xs font-bold m-0 text-gray-600">EP {episode.itunes.episode}</p>
                 <h4 className="font-bold text-lg">
-                  <Link className="text-purple-800" to={slugify(episode.title)}>
+                  <Link className="text-purple-800" to={getEpSlug(episode)}>
                     {episode.title}
                   </Link>
                 </h4>
@@ -177,6 +178,9 @@ export const query = graphql`
           enclosure {
             length
             url
+          }
+          itunes {
+            episode
           }
         }
       }

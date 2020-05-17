@@ -1,5 +1,6 @@
 const path = require('path');
-const slugify = require(`@sindresorhus/slugify`);
+
+const getEpSlug = require('./src/utils/getEpSlug');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage, createRedirect } = actions;
@@ -10,24 +11,27 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             id
             title
+            itunes {
+              episode
+            }
           }
         }
       }
     }
   `);
   result.data.allAnchorEpisode.edges.forEach(({ node }) => {
-    const slug = slugify(node.title);
+    const slug = getEpSlug(node);
     createPage({
       path: slug,
       component: path.resolve(`./src/templates/EpisodePage.js`),
       context: {
         slug,
         id: node.id,
-        episode: parseInt(node.title.match(/^([0-9]+)\./)[1], 10),
+        episode: parseInt(node.itunes.episode, 10),
       },
     });
     createRedirect({
-      fromPath: '/' + node.title.match(/^([0-9]+)\./)[1],
+      fromPath: '/' + node.itunes.episode,
       toPath: `/${slug}`,
       isPermanent: true,
     });

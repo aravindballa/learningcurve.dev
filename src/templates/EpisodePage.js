@@ -51,6 +51,7 @@ const EpisodePage = ({ pageContext, data }) => {
         <p className="text-gray-500">🎙 Learning Curve Podcast</p>
       </div>
       <div className="bg-white p-8 lg:px-16 rounded-lg shadow-md">
+        <p className="text-xs font-bold m-0 text-gray-600">EP {episode}</p>
         <h1 className="text-2xl font-bold">{title}</h1>
         <p className="text-sm text-gray-600">
           {dateString} ᐧ {durationString}
