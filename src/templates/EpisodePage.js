@@ -32,6 +32,7 @@ const EpisodePage = ({ pageContext, data }) => {
   const durationString = prettyMilliseconds(duration * 1000);
   const ogImage = `https://res.cloudinary.com/djeivq7td/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/w_857,c_fit,co_rgb:000000,g_north_west,x_108,y_87,l_text:Raleway_72_bold:${episode}${title
     .replace('.', ' -')
+    .replace('?', '')
     .replace(
       /\p{Emoji}/gu,
       ''
