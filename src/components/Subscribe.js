@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-const encode = data => {
+const encode = (data) => {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
+    .map((key) => encodeURIComponent(key) + `=` + encodeURIComponent(data[key]))
     .join(`&`);
 };
 
@@ -10,14 +10,14 @@ const Subscribe = () => {
   const [email, setEmail] = React.useState(``);
   const [status, setStatus] = React.useState(`READY`);
 
-  const handleChange = e => setEmail(e.target.value);
+  const handleChange = (e) => setEmail(e.target.value);
 
   const getStatus = async () => {
     try {
       const res = await fetch(`/`, {
         method: `POST`,
         headers: { [`Content-Type`]: `application/x-www-form-urlencoded` },
-        body: encode({ [`form-name`]: `mailing-list`, email })
+        body: encode({ [`form-name`]: `mailing-list`, email }),
       });
       if (res.status === 200) setStatus(`DONE`);
       else setStatus(`ERROR`);
@@ -26,7 +26,7 @@ const Subscribe = () => {
     }
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     getStatus();
 
@@ -55,12 +55,8 @@ const Subscribe = () => {
             </button>
           </>
         ) : null}
-        {status === `SUBMITTING` ? (
-          <p className="text-center w-full">Submitting 🙇‍♂️</p>
-        ) : null}
-        {status === `DONE` ? (
-          <p className="text-center w-full">Thanks 🎉</p>
-        ) : null}
+        {status === `SUBMITTING` ? <p className="text-center w-full">Submitting 🙇‍♂️</p> : null}
+        {status === `DONE` ? <p className="text-center w-full">Thanks 🎉</p> : null}
         {status === `ERROR` ? (
           <p className="text-center w-full text-sm text-gray-700">
             Something went wrong. Could you refresh page and retry? 🙊

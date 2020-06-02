@@ -4,7 +4,7 @@ import AravindAvatar from '../images/aravind-avatar.png';
 import BrittikAvatar from '../images/brittik-avatar.jpg';
 
 const Host = ({ name, img, role, twitter }) => (
-  <div className="host-details flex bg-white py-4 pl-4 pr-8 mt-4 rounded-lg border border-gray-100 hover:border-gray-300">
+  <div className="host-details flex bg-background py-4 pl-4 pr-8 mt-4 rounded-lg border border-background hover:border-gray-300">
     <img
       alt={`${name} avatar`}
       className="host-avatar w-16 h-16 rounded-full mr-4 border-2 border-gray-100"

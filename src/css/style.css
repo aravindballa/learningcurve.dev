@@ -3,7 +3,7 @@
 @tailwind components;
 
 a {
-  @apply text-blue-700;
+  @apply text-blue-300;
 }
 
 .host-avatar {
@@ -15,7 +15,7 @@ p {
 }
 
 blockquote {
-  @apply text-xl py-4 px-8 border-l-2 rounded font-serif italic mb-4 bg-gray-100;
+  @apply text-xl py-4 px-8 border-l-2 rounded font-serif italic mb-4 bg-background;
 }
 
 blockquote > p {

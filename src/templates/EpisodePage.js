@@ -51,7 +51,7 @@ const EpisodePage = ({ pageContext, data }) => {
         >{`← Home`}</Link>
         <p className="text-gray-500">🎙 Learning Curve Podcast</p>
       </div>
-      <div className="bg-white p-8 lg:px-16 rounded-lg shadow-md">
+      <div className="bg-background-light p-8 lg:px-16 rounded-lg shadow-md">
         <p className="text-xs font-bold m-0 text-gray-600">EP {episode}</p>
         <h1 className="text-2xl font-bold">{title}</h1>
         <p className="text-sm text-gray-600">
@@ -64,15 +64,18 @@ const EpisodePage = ({ pageContext, data }) => {
         {body ? (
           <>
             <h2 className="mt-4 text-lg font-bold">Transcript</h2>
-            <p className="text-sm bg-pink-100 p-4 rounded-lg text-pink-700">
+            <p
+              className="text-sm p-4 rounded-lg text-pink-100"
+              style={{ backgroundColor: '#97266d55' }}
+            >
               🤗This is transcribed using an{' '}
-              <a className="text-pink-700 underline" href="https://otter.ai">
+              <a className="text-pink-300 underline" href="https://otter.ai">
                 AI tool
               </a>
               . So don't expected it to be perfect. If you find mistakes, please help us polishing
               this by{' '}
               <a
-                className="text-pink-700 underline"
+                className="text-pink-300 underline"
                 href={`https://github.com/aravindballa/learningcurve.dev/edit/master/episodes/${episode}.md`}
               >
                 making a PR

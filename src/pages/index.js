@@ -33,7 +33,7 @@ function IndexPage({ data }) {
         <div className="flex flex-col sm:flex-row justify-around">
           <a
             aria-label="Spotify"
-            className="bg-gray-100 py-2 px-4 mt-2 mx-auto h-12 sm:m-0 rounded-full border-2 border-white hover:bg-white focus:bg-white"
+            className="bg-transparent py-2 px-4 mt-2 mx-auto h-12 sm:m-0 rounded-full border-2 border-white hover:bg-white focus:bg-white"
             href="https://open.spotify.com/show/3mWV1OZ9SFVs34E2GGdoUd"
             rel="noopener noreferrer"
             target="_blank"
@@ -80,7 +80,7 @@ function IndexPage({ data }) {
           </a>
           <a
             aria-label="Anchor"
-            className="bg-gray-100 py-2 px-4 mt-2 mx-auto h-12 sm:m-0 rounded-full border-2 border-white hover:bg-white focus:bg-white flex items-center"
+            className="bg-transparent py-2 px-4 mt-2 mx-auto h-12 sm:m-0 rounded-full border-2 border-white hover:bg-white focus:bg-white flex items-center"
             href="https://anchor.fm/learningcurve"
             rel="noopener noreferrer"
             target="_blank"
@@ -89,7 +89,7 @@ function IndexPage({ data }) {
           </a>
           <a
             aria-label="Google Podcasts"
-            className="bg-gray-100 py-2 px-4 mt-2 mx-auto h-12 sm:m-0 rounded-full border-2 border-white hover:bg-white focus:bg-white flex items-center"
+            className="bg-transparent py-2 px-4 mt-2 mx-auto h-12 sm:m-0 rounded-full border-2 border-white hover:bg-white focus:bg-white flex items-center"
             href="https://www.google.com/podcasts?feed=aHR0cHM6Ly9hbmNob3IuZm0vcy8zOWQ5YjE0L3BvZGNhc3QvcnNz"
             rel="noopener noreferrer"
             target="_blank"
@@ -98,7 +98,7 @@ function IndexPage({ data }) {
           </a>
           <a
             aria-label="Apple Podcasts"
-            className="bg-gray-100 py-2 px-4 mt-2 mx-auto h-12 sm:m-0 rounded-full border-2 border-white hover:bg-white focus:bg-white flex items-center"
+            className="bg-transparent py-2 px-4 mt-2 mx-auto h-12 sm:m-0 rounded-full border-2 border-white hover:bg-white focus:bg-white flex items-center"
             href="https://podcasts.apple.com/in/podcast/learning-curve/id1492930419"
             rel="noopener noreferrer"
             target="_blank"
@@ -106,7 +106,7 @@ function IndexPage({ data }) {
             <ApplePodcasts width="100" />
           </a>
           <a
-            className="bg-gray-100 py-2 px-4 mt-2 mx-auto h-12 sm:m-0 rounded-full border-2 border-white hover:bg-white focus:bg-white flex items-center"
+            className="bg-transparent py-2 px-4 mt-2 mx-auto h-12 sm:m-0 rounded-full border-2 border-white hover:bg-white focus:bg-white flex items-center"
             href="https://anchor.fm/s/39d9b14/podcast/rss"
             rel="noopener noreferrer"
             target="_blank"
@@ -131,7 +131,7 @@ function IndexPage({ data }) {
               : episode.content;
             return (
               <motion.div
-                className="mt-4 p-4 bg-white rounded-lg border border-white hover:border-gray-300"
+                className="bg-background-light text-foreground mt-4 p-4 bg-white rounded-lg border border-background hover:border-gray-500"
                 key={episode.id}
                 magic
                 magicId={episode.id}
