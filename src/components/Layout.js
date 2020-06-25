@@ -16,11 +16,6 @@ function Layout({ children }) {
         <Footer />
         <UpdateCacheModal />
       </div>
-      <div className="fixed z-10 bottom-0 w-full text-center text-lg font-bold py-6 bg-black text-gray-300">
-        <a className="text-gray-700" href="https://blacklivesmatter.com">
-          #BLACKLIVESMATTER
-        </a>
-      </div>
     </MDXProvider>
   );
 }
