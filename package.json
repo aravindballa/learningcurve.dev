@@ -14,7 +14,7 @@
     "gatsby-plugin-mdx": "^1.1.10",
     "gatsby-plugin-netlify": "^2.2.3",
     "gatsby-plugin-offline": "3.1.4",
-    "gatsby-plugin-postcss": "2.2.3",
+    "gatsby-plugin-postcss": "2.3.11",
     "gatsby-plugin-react-helmet": "3.2.4",
     "gatsby-plugin-tinacms": "^0.1.35",
     "gatsby-plugin-transitions": "^2.1.6",
