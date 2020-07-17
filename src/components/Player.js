@@ -44,15 +44,15 @@ export default ({ image, url }) => {
   return (
     <>
       <audio src={url} ref={audioRef} />
-      <div className="flex my-4">
+      <div className="flex my-4 flex-col md:flex-row">
         <img
           height="256"
           width="256"
-          className="w-64 h-64 rounded shadow-lg"
+          className="w-64 h-64 rounded shadow-lg mb-4 md:mb-0"
           src={image}
           alt="episode art"
         />
-        <div className="ml-2 flex-1">
+        <div className="ml-0 md:ml-2 flex-1">
           <div className="relative mb-4">
             <div className="h-2 w-full bg-purple-200 rounded"></div>
             <div

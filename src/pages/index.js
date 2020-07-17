@@ -131,7 +131,7 @@ function IndexPage({ data }) {
               : episode.content;
             return (
               <motion.div
-                className="bg-background-light text-foreground mt-4 p-4 bg-white rounded-lg border border-background hover:border-gray-500 flex"
+                className="bg-background-light text-foreground mt-4 p-4 bg-white rounded-lg border border-background hover:border-gray-500 flex flex-col md:flex-row"
                 key={episode.id}
                 magic
                 magicId={episode.id}
@@ -139,7 +139,7 @@ function IndexPage({ data }) {
                 <img
                   src={episode.itunes.image}
                   alt={`${episode.title} cover`}
-                  className="w-64 h-64 mr-4 rounded"
+                  className="w-64 h-64 mr-4 rounded mb-4 md:mb-0"
                   width="256"
                   height="256"
                 />
