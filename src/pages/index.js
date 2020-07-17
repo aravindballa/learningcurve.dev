@@ -124,37 +124,46 @@ function IndexPage({ data }) {
       </section>
       <section className="my-12">
         <h3 className="uppercase text-sm font-bold text-gray-700 text-center">Episodes</h3>
-        <div className="max-w-xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           {episodes.map(({ node: episode }) => {
             const content = episode.content.match(/<p>.*?<\/p>.*/)
               ? episode.content.match(/<p>(.*?)<\/p>.*/)[1]
               : episode.content;
             return (
               <motion.div
-                className="bg-background-light text-foreground mt-4 p-4 bg-white rounded-lg border border-background hover:border-gray-500"
+                className="bg-background-light text-foreground mt-4 p-4 bg-white rounded-lg border border-background hover:border-gray-500 flex"
                 key={episode.id}
                 magic
                 magicId={episode.id}
               >
-                <p className="text-xs font-bold m-0 text-gray-600">EP {episode.itunes.episode}</p>
-                <h4 className="font-bold text-lg">
-                  <Link className="text-purple-800" to={getEpSlug(episode)}>
-                    {episode.title}
-                  </Link>
-                </h4>
-                <p className="text-sm text-gray-600">
-                  {new Date(episode.pubDate).toLocaleString(`en-US`, {
-                    month: `long`,
-                    day: `2-digit`,
-                    year: `numeric`,
-                  })}
-                </p>
-                <div
-                  className="text-gray-800 mt-4"
-                  dangerouslySetInnerHTML={{
-                    __html: content,
-                  }}
+                <img
+                  src={episode.itunes.image}
+                  alt={`${episode.title} cover`}
+                  className="w-64 h-64 mr-4 rounded"
+                  width="256"
+                  height="256"
                 />
+                <div>
+                  <p className="text-xs font-bold m-0 text-gray-600">EP {episode.itunes.episode}</p>
+                  <h4 className="font-bold text-lg">
+                    <Link className="text-purple-800" to={getEpSlug(episode)}>
+                      {episode.title}
+                    </Link>
+                  </h4>
+                  <p className="text-sm text-gray-600">
+                    {new Date(episode.pubDate).toLocaleString(`en-US`, {
+                      month: `long`,
+                      day: `2-digit`,
+                      year: `numeric`,
+                    })}
+                  </p>
+                  <div
+                    className="text-gray-800 mt-4"
+                    dangerouslySetInnerHTML={{
+                      __html: content,
+                    }}
+                  />
+                </div>
               </motion.div>
             );
           })}
@@ -181,6 +190,7 @@ export const query = graphql`
           }
           itunes {
             episode
+            image
           }
         }
       }

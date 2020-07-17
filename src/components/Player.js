@@ -25,7 +25,7 @@ export default ({ image, url }) => {
   const [progress, setProgress] = React.useState(0);
   const audioRef = React.useRef(null);
 
-  const togglePlaying = () => setPlaying(prev => !prev);
+  const togglePlaying = () => setPlaying((prev) => !prev);
 
   React.useEffect(() => {
     if (audioRef && audioRef.current) {
@@ -45,7 +45,13 @@ export default ({ image, url }) => {
     <>
       <audio src={url} ref={audioRef} />
       <div className="flex my-4">
-        <img height="96" width="96" className="w-24 h-24 rounded" src={image} alt="episode art" />
+        <img
+          height="256"
+          width="256"
+          className="w-64 h-64 rounded shadow-lg"
+          src={image}
+          alt="episode art"
+        />
         <div className="ml-2 flex-1">
           <div className="relative mb-4">
             <div className="h-2 w-full bg-purple-200 rounded"></div>
