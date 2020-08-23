@@ -2,8 +2,8 @@ name: Tweet
 
 on:
   schedule:
-    # at 15:30 and 21:30 hrs everyday
-    - cron: '0 10,16 * * *'
+    # at 21:30 hrs everyday
+    - cron: '0 16 * * *'
 
 jobs:
   build:
