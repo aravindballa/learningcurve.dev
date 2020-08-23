@@ -11,7 +11,7 @@ const avatar = {
 };
 
 const TranscriptSpeaker = ({ name, time }) => (
-  <div className="flex items-center mb-1">
+  <div className="flex items-center mb-1 mt-2">
     <img alt={name} className="w-8 rounded-full mr-2" src={avatar[name]} />
     <div className="leading-tight">
       <p className="text-gray-900 text-sm m-0">

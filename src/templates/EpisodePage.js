@@ -113,7 +113,7 @@ export const query = graphql`
         image
       }
     }
-    mdx(frontmatter: { epidsode: { eq: $episode } }) {
+    mdx(frontmatter: { episode: { eq: $episode } }) {
       frontmatter {
         keywords
       }
