@@ -6,6 +6,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 import SEO from '../components/seo';
 import Player from '../components/Player';
+import TranscriptHeader from '../components/TranscriptHeader';
 
 // https://res.cloudinary.com/djeivq7td/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/w_857,c_fit,co_rgb:000000,g_north_west,x_108,y_87,l_text:Raleway_72_bold:10%20-%20Practical%20remote%20working%20tips/w_857,c_fit,co_rgb:000000,g_south_west,x_140,y_180,l_text:Raleway_36:Mar%2023%202020/w_857,c_fit,co_rgb:000000,g_south_west,x_140,y_120,l_text:Raleway_36:21m%2024s/lc-og
 
@@ -21,7 +22,7 @@ const EpisodePage = ({ pageContext, data }) => {
 
   const {
     body,
-    frontmatter: { keywords },
+    frontmatter: { keywords, hasHighlights },
   } = data.mdx || { body: null, frontmatter: { keywords: '' } };
 
   const dateString = new Date(pubDate).toLocaleString(`en-US`, {
@@ -69,25 +70,7 @@ const EpisodePage = ({ pageContext, data }) => {
 
         {body ? (
           <>
-            <h2 className="mt-4 text-lg font-bold">Transcript</h2>
-            <p
-              className="text-sm p-4 rounded-lg text-pink-100"
-              style={{ backgroundColor: '#97266d55' }}
-            >
-              🤗This is transcribed using an{' '}
-              <a className="text-pink-300 underline" href="https://otter.ai">
-                AI tool
-              </a>
-              . So don't expected it to be perfect. If you find mistakes, please help us polishing
-              this by{' '}
-              <a
-                className="text-pink-300 underline"
-                href={`https://github.com/aravindballa/learningcurve.dev/edit/master/episodes/${episode}.md`}
-              >
-                making a PR
-              </a>
-              .
-            </p>
+            {!hasHighlights && <TranscriptHeader episode={episode} />}
             <MDXRenderer>{body}</MDXRenderer>
           </>
         ) : null}
@@ -116,6 +99,7 @@ export const query = graphql`
     mdx(frontmatter: { episode: { eq: $episode } }) {
       frontmatter {
         keywords
+        hasHighlights
       }
       body
     }

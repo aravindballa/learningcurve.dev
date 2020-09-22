@@ -2,6 +2,7 @@ import React from 'react';
 
 import AravindAvatar from '../images/aravind-avatar.png';
 import BrittikAvatar from '../images/brittik-avatar.jpg';
+import TranscriptHeader from './TranscriptHeader';
 
 const avatar = {
   'Aravind Balla': AravindAvatar,
@@ -26,4 +27,5 @@ const TranscriptSpeaker = ({ name, time }) => (
 
 export default {
   TranscriptSpeaker,
+  TranscriptHeader,
 };
