@@ -41,5 +41,11 @@ module.exports = {
     `gatsby-plugin-postcss`,
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-plausible`,
+      options: {
+        domain: `learningcurve.dev`,
+      },
+    },
   ],
 };
