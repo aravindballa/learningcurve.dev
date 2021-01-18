@@ -9,7 +9,7 @@
     "@mdx-js/react": "^1.5.9",
     "@sindresorhus/slugify": "^0.11.0",
     "framer-motion": "2.0.0-beta.7",
-    "gatsby": "^2.20.29",
+    "gatsby": "^2.30.3",
     "gatsby-plugin-manifest": "2.3.6",
     "gatsby-plugin-mdx": "^1.1.10",
     "gatsby-plugin-netlify": "^2.2.3",
